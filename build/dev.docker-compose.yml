@@ -1,0 +1,25 @@
+version: '3.9'
+
+services:
+  postgre:
+    image: postgres
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=calendar
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    networks:
+      - local
+  test_postgres:
+    image: postgres
+    ports:
+      - 5435:5432
+    environment:
+      - POSTGRES_DB=calendar
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    networks:
+      - local
+networks:
+  local:
